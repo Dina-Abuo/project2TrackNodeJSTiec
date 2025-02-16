@@ -27,7 +27,15 @@ const userSchema = new mongoose.Schema({
         type:String,
         enum:[userRoles.USER,userRoles.ADMIN],
         default:userRoles.USER
-    }
+    },
+    favList: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Movie'
+    }],
+    watchLater: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Movie'
+    }]
 },
 {
     timestamps: true

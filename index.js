@@ -3,7 +3,7 @@ const mongoose=require('mongoose');
 const usersRouter  = require("./routers/users.router");
 const authRouter  = require("./routers/auth.router");
 const httpStatusText=require("./utils/httpStatusText");
-const appError = require("./utils/appError");
+const moviesRouter = require("./routers/movies.router")
 require("dotenv").config();
 const port=process.env.PORT||3000;
 const app =express();
@@ -28,6 +28,7 @@ app.use(express.json());
 
 app.use('/api/user',usersRouter);
 app.use('/api/auth',authRouter);
+app.use('/api/movie',moviesRouter);
 
 // global middleware for not found router
 app.all("*", (req, res, next) => {
